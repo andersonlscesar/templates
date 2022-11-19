@@ -1,0 +1,35 @@
+@forward './components/index.scss';
+@forward './variables/index.scss';
+
+/*
+===========================
+RESET
+===========================
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*
+===========================
+FONT FAMILY CONFIG
+===========================
+*/
+
+@font-face {
+    font-family: Oswald;
+    src: url('../font/Oswald/static/Oswald-Regular.ttf');
+}
+
+body {
+    font-family: Oswald;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}

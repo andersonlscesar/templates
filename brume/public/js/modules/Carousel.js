@@ -1,5 +1,4 @@
-"use strict";
-class Carousel {
+export class Carousel {
     constructor(settings) {
         var _a;
         this.counter = 0;
@@ -28,7 +27,6 @@ class Carousel {
             images[i].classList.remove('show-image');
         }
         images[this.counter].classList.add('show-image');
-        console.log(images.length);
     }
     previous() {
         const images = document.getElementsByClassName('carousel-img');
@@ -78,14 +76,3 @@ class Carousel {
         setInterval(() => { this.next(); }, 4000);
     }
 }
-const configs = {
-    imagePath: [
-        'public/img/w1.jpg',
-        'public/img/w2.jpg',
-        'public/img/w3.jpg'
-    ],
-    carouselArea: document.querySelector('#hero'),
-    controls: true
-};
-const carousel = new Carousel(configs);
-carousel.autoNextSlide();

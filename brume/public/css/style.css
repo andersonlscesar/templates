@@ -119,11 +119,52 @@
   padding: 4rem 1rem;
   background-color: #020001;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: 0.5rem;
 }
 #projects .projects__title {
   font-weight: lighter;
+  position: relative;
+  margin-bottom: 2rem;
+}
+#projects .projects__title::after {
+  content: "";
+  position: absolute;
+  left: -20rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 1px;
+  background-color: #fff;
+}
+#projects .projects__area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+#projects .area__card {
+  position: relative;
+}
+#projects .area__card:hover .cover {
+  opacity: 1;
+}
+#projects .area__card .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#projects .area__card img {
+  display: block;
+  width: 100%;
 }
 
 /*

@@ -9,5 +9,49 @@
 
     .projects__title {
         font-weight: lighter;
+        position: relative;
+        margin-bottom: 2rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: -20rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 1px;
+            background-color: #fff;
+        }
+    }
+
+    .projects__area {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .area__card {
+        position: relative;
+        &:hover .cover {
+            opacity: 1;
+        }
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100%;
+            width: 100%;
+            font-size: var.$normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
     }
 }

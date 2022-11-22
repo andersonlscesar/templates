@@ -167,6 +167,82 @@
   width: 100%;
 }
 
+#footer {
+  padding: 3rem 1rem;
+  background-color: #020001;
+  position: relative;
+}
+#footer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #878787;
+}
+#footer .footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+#footer .brand {
+  text-align: center;
+  align-self: start;
+}
+#footer .footer__p {
+  color: #878787;
+  font-weight: lighter;
+}
+#footer .pages {
+  color: #878787;
+  justify-self: center;
+}
+#footer .pages .pages__title {
+  color: #878787;
+}
+#footer .pages .pages__list {
+  list-style: none;
+}
+#footer .pages .pages__list a {
+  text-decoration: none;
+  color: #878787;
+  display: block;
+  padding: 5px 0;
+}
+#footer .footer__contact {
+  color: #878787;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: start;
+  align-self: start;
+}
+#footer .footer__contact-midia {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.7rem;
+}
+#footer .footer__related-projects {
+  align-self: start;
+}
+#footer .realated-projects__title {
+  color: #878787 !important;
+  margin-bottom: 1rem;
+}
+#footer .related-projects img {
+  width: 50px;
+}
+#footer .related__projects-area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#footer .related__projects-area .area__card {
+  width: 50px;
+}
+
 /*
 ===========================
 RESET

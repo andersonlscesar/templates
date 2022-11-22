@@ -267,6 +267,20 @@ body {
   font-family: Oswald;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgb(94, 88, 88);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #232323;
+  border-radius: 30px;
+  border: 3px solid rgb(94, 88, 88);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

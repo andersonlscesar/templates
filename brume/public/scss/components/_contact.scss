@@ -1,0 +1,41 @@
+@use '../variables' as var;
+#contact {
+    padding: 1rem;
+    background-color: var.$primary-color;
+    color: var.$text-color-darker;
+
+    .contact__flex {
+
+        display: flex;
+        gap: 1.5rem;
+        font-size: var.$small;
+        .contact__area {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .contact__email, .contact__phone {
+            cursor: pointer;
+            transition: color .3s ease-in-out;
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .contact__midia {
+            margin-left: auto;
+            font-size: 1.4rem;
+            display: flex;
+            gap: 1.5rem;
+
+            i {
+                cursor: pointer;
+                transition: color .3s ease-in-out;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    
+}

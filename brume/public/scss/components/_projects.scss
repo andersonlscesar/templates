@@ -1,0 +1,13 @@
+@use '../variables' as var;
+
+#projects {
+    padding: 4rem 1rem;
+    background-color: var.$primary-color;
+    color: #fff;
+    font-size: var.$large;
+    letter-spacing: .5rem;
+
+    .projects__title {
+        font-weight: lighter;
+    }
+}

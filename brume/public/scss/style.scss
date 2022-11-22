@@ -21,7 +21,8 @@ FONT FAMILY CONFIG
 
 @font-face {
     font-family: Oswald;
-    src: url('../font/Oswald/static/Oswald-Regular.ttf');
+    src: url('../font/Oswald/static/Oswald-Regular.ttf'),
+         url('../font//Oswald/static/Oswald-ExtraLight.ttf');
 }
 
 body {

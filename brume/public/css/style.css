@@ -80,6 +80,52 @@
   cursor: pointer;
 }
 
+#contact {
+  padding: 1rem;
+  background-color: #020001;
+  color: #878787;
+}
+#contact .contact__flex {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+#contact .contact__flex .contact__area {
+  display: flex;
+  gap: 1.5rem;
+}
+#contact .contact__flex .contact__email, #contact .contact__flex .contact__phone {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+#contact .contact__flex .contact__email:hover, #contact .contact__flex .contact__phone:hover {
+  color: #fff;
+}
+#contact .contact__flex .contact__midia {
+  margin-left: auto;
+  font-size: 1.4rem;
+  display: flex;
+  gap: 1.5rem;
+}
+#contact .contact__flex .contact__midia i {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+#contact .contact__flex .contact__midia i:hover {
+  color: #fff;
+}
+
+#projects {
+  padding: 4rem 1rem;
+  background-color: #020001;
+  color: #fff;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+#projects .projects__title {
+  font-weight: lighter;
+}
+
 /*
 ===========================
 RESET
@@ -98,7 +144,7 @@ FONT FAMILY CONFIG
 */
 @font-face {
   font-family: Oswald;
-  src: url("../font/Oswald/static/Oswald-Regular.ttf");
+  src: url("../font/Oswald/static/Oswald-Regular.ttf"), url("../font//Oswald/static/Oswald-ExtraLight.ttf");
 }
 body {
   font-family: Oswald;

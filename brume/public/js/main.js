@@ -1,4 +1,6 @@
 import { Carousel } from "./modules/Carousel.js";
+import { Menu } from "./modules/Menu.js";
+// Slide 
 const configs = {
     imagePath: [
         'public/img/w1.jpg',
@@ -10,3 +12,9 @@ const configs = {
 };
 const carousel = new Carousel(configs);
 carousel.autoNextSlide();
+// ====================================================
+//Menu
+const menuBars = document.querySelector('.menu-bars');
+const closeBtn = document.querySelector('.close-menu');
+const menuNav = document.querySelector('nav');
+const menu = new Menu(menuBars, menuNav, closeBtn);

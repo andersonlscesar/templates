@@ -31,7 +31,6 @@ I've using modules in js, but for some reason i've getting an error on typescrip
 
 <img src="public/img/gif/brume-mobile-version.gif" alt="the site's mobile version"/>
 
-
 *I havent cloned the site right the way it were, i've just got inpired and i've decided do it in my way*.
 
 

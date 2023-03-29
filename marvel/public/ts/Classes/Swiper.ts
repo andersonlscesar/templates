@@ -72,6 +72,8 @@ export class Swiper<T extends HTMLDivElement> // Constraint
         this.isDragging = false;
         this.headForAnotherSlide();
         this.defineTransletrs();
+        console.log(navigator.userAgent)
+
     }
 
     /**
@@ -81,6 +83,7 @@ export class Swiper<T extends HTMLDivElement> // Constraint
 
     private dragging(e: TouchEvent | MouseEvent): void 
     {
+  
         if (this.isDragging) {
             this.currentPosition = this.getHorizontalCoordinate(e);
             this.currentTranslate = this.previousTranslate + this.currentPosition - this.startPosition;          
@@ -119,13 +122,15 @@ export class Swiper<T extends HTMLDivElement> // Constraint
      * @returns { number }
      */
 
-    private getHorizontalCoordinate(e: TouchEvent | MouseEvent): number 
-    {
-        if (e instanceof TouchEvent) {
+     private getHorizontalCoordinate(e: TouchEvent | MouseEvent): number 
+     {
+        if ('touches' in e) {
             return e.touches[0].clientX;
+        } else {
+            return e.clientX;
         }
-        return e.clientX;
-    }
+         
+     }
 
     /**
      * Verifica a possibilidade de mudar de slide

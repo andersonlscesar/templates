@@ -51,6 +51,7 @@ export class Swiper {
         this.isDragging = false;
         this.headForAnotherSlide();
         this.defineTransletrs();
+        console.log(navigator.userAgent);
     }
     /**
      * Essa função é disparada quando o usuário fica arrastando o slide
@@ -87,10 +88,12 @@ export class Swiper {
      * @returns { number }
      */
     getHorizontalCoordinate(e) {
-        if (e instanceof TouchEvent) {
+        if ('touches' in e) {
             return e.touches[0].clientX;
         }
-        return e.clientX;
+        else {
+            return e.clientX;
+        }
     }
     /**
      * Verifica a possibilidade de mudar de slide

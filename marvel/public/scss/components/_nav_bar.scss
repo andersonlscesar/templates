@@ -1,0 +1,90 @@
+@use '../variables/index' as var;
+
+.nav-bar {
+    position: relative;
+    background-color: var.$primary-color;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    transform: translateY(-100%);
+    overflow-y: scroll;
+
+
+    &__close {
+        width: 20px;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+    }
+
+    &__list {
+        list-style: none;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 5rem;
+    }
+
+    &__list-link {
+        text-decoration: none;
+        display: block;        
+        color: var.$nav-bar-links-color;
+        font-size: var.$font-size-extra-large-mb;
+    }
+}
+
+.nav-bar--open {
+    animation: open-nav-bar .4s forwards;
+    pointer-events: all;
+}
+
+.nav-bar--close {
+    animation: close-nav-bar .4s forwards;
+    transform: translateY(0%);
+}
+
+
+
+@keyframes open-nav-bar {
+
+   0% {
+    transform: translateY(-200%);
+   }
+
+   50% {
+    transform: translateY(0%);
+
+   }
+
+   75% {
+    transform: translateY(-20%);    
+   }
+
+   to {
+    transform: translateY(0%);
+   }
+}
+
+@keyframes close-nav-bar {
+    0% {
+        transform: translateY(0%);
+    }
+    
+    50% {
+        transform: translateY(-20%);
+    
+    }
+    
+    75% {
+        transform: translateY(0%);    
+    }
+    
+    to {
+        transform: translateY(-200%);
+    }
+}

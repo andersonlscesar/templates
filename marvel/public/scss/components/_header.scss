@@ -1,0 +1,29 @@
+@use '../variables/index' as var;
+
+.header {
+
+    background-color: var.$primary-color-opacified;
+    backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    z-index: 100;
+    
+    &__logo {
+        width: 80px;
+        object-fit: cover;
+    }
+
+    &__flex-basis {
+        flex-basis: 100%;
+        height: inherit;
+    }
+
+    &__flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+

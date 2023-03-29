@@ -1,0 +1,21 @@
+@use '../variables/index' as var;
+
+.menu-button {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    gap: .2rem;
+    flex-direction: column;
+    
+    &__bar {
+        height: 4px;
+        width: 100%;
+        background-color: var.$button-primary-color;
+        border-radius: 5px;
+    }
+
+    &__bar:nth-child(2) {
+        width: 70%!important;
+    }
+}

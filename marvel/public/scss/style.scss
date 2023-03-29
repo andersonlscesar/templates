@@ -1,0 +1,22 @@
+@use '../scss/components/index';
+@use '../scss/variables/index' as var;
+/* RESET GERAL*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-family: speedy;
+}
+
+body {
+    background-color: var.$primary-color;
+}
+
+@font-face {
+    font-family: speedy;
+    src: url('../font/speedy-font/SpeedyRegular-7BLoE.ttf');
+}

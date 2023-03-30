@@ -122,9 +122,10 @@ export class Swiper<T extends HTMLDivElement> // Constraint
 
         //Verificando a existencia dos valores isCentered e visibles
         if (this.options?.isCentered  && this.options?.visibles) {
+            this.highlightCenteredElement();
             // Tem que haver no minimo dois elementos visiveis
             if (this.options.isCentered === true && this.options.visibles > 1) {
-                this.currentTranslate = this.currentIndex * -  (window.innerWidth / 3);
+                this.currentTranslate = this.currentIndex * -  (window.innerWidth / this.options.visibles);
             }
         }
         this.previousTranslate = this.currentTranslate;
@@ -169,6 +170,28 @@ export class Swiper<T extends HTMLDivElement> // Constraint
         } else if (this.moved > 50 && this.currentIndex > 0) {
             this.currentIndex--;
         }
+    }
+
+    /**
+     * Esta função identifica o elemento central e altera sua escala em relação aos demais.
+     */
+
+    private highlightCenteredElement(): void 
+    {
+ 
+
+        let observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                console.log(entry.isIntersecting)
+            })
+        });
+
+        this.swiperContent.forEach(content => observer.observe(content));
+
+
+
+
+        
     }
 
     /**

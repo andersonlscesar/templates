@@ -63,14 +63,19 @@ Swiper com mais visibilidade
     width: 100vw;
 
     &__container {
-        height: 200px;
-        width: 90px;
+        height: 130px;
+        width: 120px;
         background-color: red;      
         justify-self: center;  
         border-radius: 5px;
         padding: 1rem;
+        transform: scale(.8);
+
     }
 
+    .scaled {
+        transform: scale(1);
 
 
+    }
 }

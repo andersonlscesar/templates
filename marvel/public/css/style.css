@@ -92,12 +92,16 @@ Swiper com mais visibilidade
   width: 100vw;
 }
 .swiper-more-visible__container {
-  height: 200px;
-  width: 90px;
+  height: 130px;
+  width: 120px;
   background-color: red;
   justify-self: center;
   border-radius: 5px;
   padding: 1rem;
+  transform: scale(0.8);
+}
+.swiper-more-visible .scaled {
+  transform: scale(1);
 }
 
 .menu-button {

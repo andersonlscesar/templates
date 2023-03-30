@@ -28,7 +28,7 @@
   max-width: 568px;
 }
 
-#swiper-guard {
+.swiper-guard {
   width: 100%;
 }
 
@@ -78,6 +78,26 @@
   pointer-events: all;
   color: #CFEAFD;
   font-size: 26px;
+}
+
+/*
+==========================================================
+Swiper com mais visibilidade
+==========================================================
+*/
+.swiper-more-visible {
+  display: grid;
+  grid-template-columns: repeat(6, 100%);
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 100vw;
+}
+.swiper-more-visible__container {
+  height: 200px;
+  width: 90px;
+  background-color: red;
+  justify-self: center;
+  border-radius: 5px;
+  padding: 1rem;
 }
 
 .menu-button {
@@ -184,6 +204,7 @@
   height: 4px;
   grid-column-start: 2;
   grid-column-end: 3;
+  margin-top: 1rem;
 }
 .section-grid .section-title {
   color: #CFEAFD;
@@ -207,6 +228,7 @@
 html {
   height: 100%;
   font-family: speedy;
+  overflow-x: hidden;
 }
 
 body {

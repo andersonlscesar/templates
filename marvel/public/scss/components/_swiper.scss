@@ -1,6 +1,6 @@
 @use '../variables/index' as var;
 
-#swiper-guard {
+.swiper-guard {
     width: 100%;
 }
 
@@ -26,7 +26,6 @@
     }
 
     &__controls {
-
         position: absolute;
         top: 60%;
         transform: translateY(-50%);
@@ -48,4 +47,30 @@
             font-size: 26px;
         }        
     }
+
+}
+
+/*
+==========================================================
+Swiper com mais visibilidade
+==========================================================
+*/
+
+.swiper-more-visible {
+    display: grid;
+    grid-template-columns: repeat(6, 100%);
+    transition: transform .3s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 100vw;
+
+    &__container {
+        height: 200px;
+        width: 90px;
+        background-color: red;      
+        justify-self: center;  
+        border-radius: 5px;
+        padding: 1rem;
+    }
+
+
+
 }

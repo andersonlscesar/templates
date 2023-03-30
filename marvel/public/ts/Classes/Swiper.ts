@@ -1,5 +1,7 @@
 interface Controls {
-    isControlsOn: boolean;
+    isControlsOn?: boolean; // Habilita os botões 
+    visibles?: number; // Quantidade de elementos visiveis na largura da tela
+    isCentered?: boolean; // Se sempre tem que parar e centralizar um elemento na tela
 }
 
 
@@ -13,7 +15,7 @@ export class Swiper<T extends HTMLDivElement> // Constraint
     private previousTranslate:  number = 0;
     private moved: number = 0;
 
-    private swiperGuard = document.querySelector('#swiper-guard') as HTMLDivElement;    
+    private swiperGuard = document.querySelector('.swiper-guard') as HTMLDivElement;    
     private controlContainer!: HTMLDivElement;
     private previousButton!: HTMLElement;
     private nextButton!: HTMLElement;
@@ -29,6 +31,21 @@ export class Swiper<T extends HTMLDivElement> // Constraint
         this.swiperContent = swiperContent;
         this.manageEvents();
         this.enableControls();
+        this.defineAmountVisibleElements();
+    }
+
+    /**
+     * Ajustará quantos elementos ficarão visiveis no swiper
+     * Para isso, a opção "visible" tem que possuir um valor
+     * Assim será feito um simples calculo
+     */
+
+    private defineAmountVisibleElements(): void 
+    {
+        if (this.options?.visibles && this.options?.isCentered) {
+            let colunmWidth: number = 100 / this.options.visibles;  
+            this.swiperContainer.style.gridTemplateColumns = `repeat(${ this.swiperContent.length }, ${ +colunmWidth.toFixed(2) }%)`;
+        }
     }
 
     /**
@@ -72,8 +89,6 @@ export class Swiper<T extends HTMLDivElement> // Constraint
         this.isDragging = false;
         this.headForAnotherSlide();
         this.defineTransletrs();
-        console.log(navigator.userAgent)
-
     }
 
     /**
@@ -102,7 +117,16 @@ export class Swiper<T extends HTMLDivElement> // Constraint
 
     private defineTransletrs(): void 
     {
-        this.currentTranslate = this.currentIndex * - window.innerWidth;
+
+        this.currentTranslate =  this.currentIndex * - window.innerWidth;
+
+        //Verificando a existencia dos valores isCentered e visibles
+        if (this.options?.isCentered  && this.options?.visibles) {
+            // Tem que haver no minimo dois elementos visiveis
+            if (this.options.isCentered === true && this.options.visibles > 1) {
+                this.currentTranslate = this.currentIndex * -  (window.innerWidth / 3);
+            }
+        }
         this.previousTranslate = this.currentTranslate;
         this.setSwiperTranslate();
     }
@@ -113,7 +137,7 @@ export class Swiper<T extends HTMLDivElement> // Constraint
 
     private setSwiperTranslate(): void 
     {
-        this.swiperContainer.style.transform = `translateX(${this.currentTranslate}px)`;
+        this.swiperContainer.style.transform = `translateX(${ this.currentTranslate }px)`;
     }
 
     /**

@@ -12,11 +12,24 @@ export class Swiper {
         this.currentTranslate = 0;
         this.previousTranslate = 0;
         this.moved = 0;
-        this.swiperGuard = document.querySelector('#swiper-guard');
+        this.swiperGuard = document.querySelector('.swiper-guard');
         this.swiperContainer = swiperContainer;
         this.swiperContent = swiperContent;
         this.manageEvents();
         this.enableControls();
+        this.defineAmountVisibleElements();
+    }
+    /**
+     * Ajustará quantos elementos ficarão visiveis no swiper
+     * Para isso, a opção "visible" tem que possuir um valor
+     * Assim será feito um simples calculo
+     */
+    defineAmountVisibleElements() {
+        var _a, _b;
+        if (((_a = this.options) === null || _a === void 0 ? void 0 : _a.visibles) && ((_b = this.options) === null || _b === void 0 ? void 0 : _b.isCentered)) {
+            let colunmWidth = 100 / this.options.visibles;
+            this.swiperContainer.style.gridTemplateColumns = `repeat(${this.swiperContent.length}, ${+colunmWidth.toFixed(2)}%)`;
+        }
     }
     /**
      * Função responsável por generenciar os eventos
@@ -51,7 +64,6 @@ export class Swiper {
         this.isDragging = false;
         this.headForAnotherSlide();
         this.defineTransletrs();
-        console.log(navigator.userAgent);
     }
     /**
      * Essa função é disparada quando o usuário fica arrastando o slide
@@ -72,7 +84,15 @@ export class Swiper {
      * Essa função realiza os calulos para a transição atual e a anterior
      */
     defineTransletrs() {
+        var _a, _b;
         this.currentTranslate = this.currentIndex * -window.innerWidth;
+        //Verificando a existencia dos valores isCentered e visibles
+        if (((_a = this.options) === null || _a === void 0 ? void 0 : _a.isCentered) && ((_b = this.options) === null || _b === void 0 ? void 0 : _b.visibles)) {
+            // Tem que haver no minimo dois elementos visiveis
+            if (this.options.isCentered === true && this.options.visibles > 1) {
+                this.currentTranslate = this.currentIndex * -(window.innerWidth / 3);
+            }
+        }
         this.previousTranslate = this.currentTranslate;
         this.setSwiperTranslate();
     }

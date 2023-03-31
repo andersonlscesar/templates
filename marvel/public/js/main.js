@@ -12,3 +12,6 @@ new Swiper(swiperContainer, swiperContent, { isControlsOn: false });
 const swiperContainerVisible = document.querySelector('.swiper-more-visible');
 const swiperContentVisible = document.querySelectorAll('.swiper-more-visible__container');
 new Swiper(swiperContainerVisible, swiperContentVisible, { isControlsOn: false, visibles: 3, isCentered: true });
+const swiperContainerVisibleII = document.querySelector('.swiper-tv-show');
+const swiperContentVisibleII = document.querySelectorAll('.swiper-show');
+new Swiper(swiperContainerVisibleII, swiperContentVisibleII, { isControlsOn: false, visibles: 3, isCentered: true });

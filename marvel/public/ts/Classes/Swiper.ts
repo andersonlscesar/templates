@@ -22,7 +22,7 @@ export class Swiper<T extends HTMLDivElement> // Constraint
 
     constructor
     (
-        private swiperContainer: T, // O container do swiper
+        private swiperContainer: T , // O container do swiper
         private swiperContent: NodeListOf<T>, // Os elementos / Imagens dentro do swiper
         private options?: Controls
     )   
@@ -108,7 +108,7 @@ export class Swiper<T extends HTMLDivElement> // Constraint
     private animate(): void 
     {
         this.setSwiperTranslate();
-        if (this.isDragging) requestAnimationFrame(this.animate.bind(this));
+        if (this.isDragging) requestAnimationFrame( this.animate.bind(this) );
     }
 
     /**
@@ -121,10 +121,10 @@ export class Swiper<T extends HTMLDivElement> // Constraint
         this.currentTranslate =  this.currentIndex * - window.innerWidth;
 
         //Verificando a existencia dos valores isCentered e visibles
-        if (this.options?.isCentered  && this.options?.visibles) {
+        if ( this.options?.isCentered  && this.options?.visibles ) {
             this.highlightCenteredElement();
             // Tem que haver no minimo dois elementos visiveis
-            if (this.options.isCentered === true && this.options.visibles > 1) {
+            if ( this.options.visibles > 1 ) {
                 this.currentTranslate = this.currentIndex * -  (window.innerWidth / this.options.visibles);
             }
         }
@@ -178,20 +178,21 @@ export class Swiper<T extends HTMLDivElement> // Constraint
 
     private highlightCenteredElement(): void 
     {
- 
-
-        let observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                console.log(entry.isIntersecting)
-            })
-        });
-
-        this.swiperContent.forEach(content => observer.observe(content));
-
-
-
-
         
+    }
+
+    /**
+     * Essa função verifica se as opções estão devidamente definidas
+     * @returns { boolean }
+     */
+
+    private isOptionsAvailable(): boolean 
+    {
+        if (this.options?.isCentered  && this.options?.visibles) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

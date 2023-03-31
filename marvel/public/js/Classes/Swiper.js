@@ -90,7 +90,7 @@ export class Swiper {
         if (((_a = this.options) === null || _a === void 0 ? void 0 : _a.isCentered) && ((_b = this.options) === null || _b === void 0 ? void 0 : _b.visibles)) {
             this.highlightCenteredElement();
             // Tem que haver no minimo dois elementos visiveis
-            if (this.options.isCentered === true && this.options.visibles > 1) {
+            if (this.options.visibles > 1) {
                 this.currentTranslate = this.currentIndex * -(window.innerWidth / this.options.visibles);
             }
         }
@@ -132,12 +132,17 @@ export class Swiper {
      * Esta função identifica o elemento central e altera sua escala em relação aos demais.
      */
     highlightCenteredElement() {
-        let observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                console.log(entry.isIntersecting);
-            });
-        });
-        this.swiperContent.forEach(content => observer.observe(content));
+    }
+    /**
+     * Essa função verifica se as opções estão devidamente definidas
+     * @returns { boolean }
+     */
+    isOptionsAvailable() {
+        var _a, _b;
+        if (((_a = this.options) === null || _a === void 0 ? void 0 : _a.isCentered) && ((_b = this.options) === null || _b === void 0 ? void 0 : _b.visibles)) {
+            return true;
+        }
+        return false;
     }
     /**
      * =============================================================

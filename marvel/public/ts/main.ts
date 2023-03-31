@@ -22,4 +22,10 @@ const swiperContentVisible = document.querySelectorAll('.swiper-more-visible__co
 
 new Swiper(swiperContainerVisible, swiperContentVisible, { isControlsOn: false, visibles: 3, isCentered: true });
 
+const swiperContainerVisibleII = document.querySelector('.swiper-tv-show') as HTMLDivElement;
+const swiperContentVisibleII = document.querySelectorAll('.swiper-show') as NodeListOf<HTMLDivElement>;
+
+
+new Swiper(swiperContainerVisibleII, swiperContentVisibleII, { isControlsOn: false, visibles: 3, isCentered: true });
+
 

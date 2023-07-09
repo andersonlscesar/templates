@@ -1,0 +1,35 @@
+$primary-color-1: #6743ff;
+$primary-color-2: #4334f1;
+$primary-color-3: #342eea;
+
+$result-color-1: #4b24cd;
+$result-color-2: #4531e8;
+
+$body-color: #fff;
+
+$reaction-bg-color: #fff6f5;
+$memory-bg-color: #fffbf2;
+$verbal-bg-color: #f2fbfa;
+$visual-bg-color: #f3f3fd;
+$reaction: #e3747b;
+$memory: #f3ae0d;
+$verbal: #76c4ac;
+$visual: #4351b4;
+
+$button-color: #303b59;
+
+$button-color-hover-1: #5d3efb;
+$button-color-hover-2: #3731ed;
+
+$score-current: #2e2e46;
+$score-goal: #989198;
+
+
+$text-primary-color: #cfc3ff;
+$text-secondary-color: #f9fcff;
+$text-grey: #43485b;
+
+@mixin linearGradient(){
+    background-image: linear-gradient(to bottom, $primary-color-1 20%, $primary-color-2 , $primary-color-3) ;
+}
+

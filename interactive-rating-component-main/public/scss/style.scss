@@ -1,0 +1,273 @@
+@use 'variables/index.scss' as var;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    background-color: var.$bg-body;
+    font-family: "Overpass";
+}
+
+@font-face {
+    font-family: "Overpass-400";
+    src: url('../fonts/Overpass/static/Overpass-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Overpass-700";
+    src: url('../fonts/Overpass/static/Overpass-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Overpass";
+    src: url('../fonts/Overpass/static/Overpass-Regular.ttf');
+}
+
+%title {
+    font-family: "Overpass-700";
+    color: var.$title-color;
+    font-size: 1.7rem;
+}
+
+%p {
+    color: var.$text-color;
+    font-size: var.$font-size-paragraph;
+
+}
+
+.container {
+    max-width: 375px;
+    margin: auto;
+    padding: 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-rate {
+    @include var.card();
+    min-height: 387px;
+    overflow: hidden;
+
+    .icon {
+        background-color: var.$light-blue;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+
+
+    &__title {
+        @extend %title;
+    }
+
+    &__p {
+       @extend %p;
+    }
+
+
+    .rate {
+        display: flex;
+        justify-content: space-around;
+        gap: .8rem;
+        button {
+            color: var.$text-color;
+            background-color: var.$light-blue;
+            padding: 1rem;
+            height: 45px;
+            width: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: transparent
+        }
+    }
+
+    .btn {
+        @include var.button();
+        position: relative;
+    }    
+    
+    .btn::before, .btn::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .btn::before {
+        content: "SUBMIT";
+        transition: opacity .3s ease;
+    }
+
+    .loading::after {
+        content: "";
+        height: 20px;
+        width: 20px;
+        display: flex;
+        border-radius: 50%;
+        box-shadow: 1px 1px 0px rgba(182, 182, 182, 0.8);
+        animation: loading .1s infinite linear;
+    }
+
+    .loading::before {
+        opacity: 0;
+    }
+}
+
+@keyframes loading {
+    to {
+        transform:  translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.right {
+    pointer-events: none;
+}
+
+@for $i from 1 through 5 {
+    .right:nth-of-type(#{$i}) {
+        animation: right 1s forwards;
+        animation-delay: $i * .3s ;
+    }
+}
+
+@keyframes right {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10%);
+        opacity: .5;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+
+.to-right {
+    transform: translateX(200%);    
+    opacity: 0;
+
+}
+
+@for $i from 1 through 4 {
+    .to-right:nth-of-type(#{$i}) {
+        animation: to-center 1s forwards;
+        animation-delay: $i * .2s ;
+    }
+}
+
+@keyframes to-center {
+    0% {
+        transform: translateX(200%);    
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(-10%);
+        opacity: .5;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.thanks {
+    height: 120px;
+    width: 120px;
+    object-fit: contain;
+    align-self: center;
+}
+
+.tks-title {
+    @extend %title;
+    align-self: center;
+}
+
+.option-selected {
+    color: var.$orange;
+    background-color: var.$light-blue;
+    align-self: center;
+    padding: .5rem;
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+.p-tks {
+    @extend %p;
+    text-align: center;
+}
+
+.active {
+    background-color: var.$orange!important;
+    color: #fff!important;
+}
+
+
+
+
+@media screen and (max-width: 351px) {
+    .rate {
+        span {
+            height: 35px!important;
+            width: 35px!important;
+
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 500px) {
+    .container {
+        max-width: 560px;
+        padding: 2rem 3rem;
+    }
+
+  
+
+    .rate {
+        button {
+            height: 60px!important;
+            width: 60px!important;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                background-color: var.$light-blue-hover;
+                color: #fff;
+            }
+        }
+    }
+
+    .btn {
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            color: var.$orange;
+            background-color: #fff;
+        }
+    }
+
+
+ 
+}

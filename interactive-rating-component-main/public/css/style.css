@@ -1,0 +1,270 @@
+/*
+MIXINS
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  background-color: #141519;
+  font-family: "Overpass";
+}
+
+@font-face {
+  font-family: "Overpass-400";
+  src: url("../fonts/Overpass/static/Overpass-Medium.ttf");
+}
+@font-face {
+  font-family: "Overpass-700";
+  src: url("../fonts/Overpass/static/Overpass-Bold.ttf");
+}
+@font-face {
+  font-family: "Overpass";
+  src: url("../fonts/Overpass/static/Overpass-Regular.ttf");
+}
+.tks-title, .card-rate__title {
+  font-family: "Overpass-700";
+  color: #feffff;
+  font-size: 1.7rem;
+}
+
+.p-tks, .card-rate__p {
+  color: #808b96;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 375px;
+  margin: auto;
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-rate {
+  background-image: linear-gradient(to bottom, #1f2630, #1d242e, #181f29 60%);
+  min-height: 300px;
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1.4rem;
+  gap: 1.5rem;
+  min-height: 387px;
+  overflow: hidden;
+}
+.card-rate .icon {
+  background-color: #252f38;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.card-rate .rate {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.8rem;
+}
+.card-rate .rate button {
+  color: #808b96;
+  background-color: #252f38;
+  padding: 1rem;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: transparent;
+}
+.card-rate .btn {
+  border: transparent;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.6rem;
+  border-radius: 30px;
+  background-color: hsl(25, 97%, 53%);
+  color: #fff;
+  min-height: 41px;
+  position: relative;
+}
+.card-rate .btn::before, .card-rate .btn::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card-rate .btn::before {
+  content: "SUBMIT";
+  transition: opacity 0.3s ease;
+}
+.card-rate .loading::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  display: flex;
+  border-radius: 50%;
+  box-shadow: 1px 1px 0px rgba(182, 182, 182, 0.8);
+  animation: loading 0.1s infinite linear;
+}
+.card-rate .loading::before {
+  opacity: 0;
+}
+
+@keyframes loading {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.right {
+  pointer-events: none;
+}
+
+.right:nth-of-type(1) {
+  animation: right 1s forwards;
+  animation-delay: 0.3s;
+}
+
+.right:nth-of-type(2) {
+  animation: right 1s forwards;
+  animation-delay: 0.6s;
+}
+
+.right:nth-of-type(3) {
+  animation: right 1s forwards;
+  animation-delay: 0.9s;
+}
+
+.right:nth-of-type(4) {
+  animation: right 1s forwards;
+  animation-delay: 1.2s;
+}
+
+.right:nth-of-type(5) {
+  animation: right 1s forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+.to-right {
+  transform: translateX(200%);
+  opacity: 0;
+}
+
+.to-right:nth-of-type(1) {
+  animation: to-center 1s forwards;
+  animation-delay: 0.2s;
+}
+
+.to-right:nth-of-type(2) {
+  animation: to-center 1s forwards;
+  animation-delay: 0.4s;
+}
+
+.to-right:nth-of-type(3) {
+  animation: to-center 1s forwards;
+  animation-delay: 0.6s;
+}
+
+.to-right:nth-of-type(4) {
+  animation: to-center 1s forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes to-center {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-10%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+.thanks {
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
+  align-self: center;
+}
+
+.tks-title {
+  align-self: center;
+}
+
+.option-selected {
+  color: hsl(25, 97%, 53%);
+  background-color: #252f38;
+  align-self: center;
+  padding: 0.5rem;
+  border-radius: 30px;
+  font-size: 15px;
+}
+
+.p-tks {
+  text-align: center;
+}
+
+.active {
+  background-color: hsl(25, 97%, 53%) !important;
+  color: #fff !important;
+}
+
+@media screen and (max-width: 351px) {
+  .rate span {
+    height: 35px !important;
+    width: 35px !important;
+  }
+}
+@media screen and (min-width: 500px) {
+  .container {
+    max-width: 560px;
+    padding: 2rem 3rem;
+  }
+  .rate button {
+    height: 60px !important;
+    width: 60px !important;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .rate button:hover {
+    background-color: #7c8896;
+    color: #fff;
+  }
+  .btn {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .btn:hover {
+    color: hsl(25, 97%, 53%);
+    background-color: #fff;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

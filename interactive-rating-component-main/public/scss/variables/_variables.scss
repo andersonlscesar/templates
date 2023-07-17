@@ -1,0 +1,37 @@
+$orange: hsl(25, 97%, 53%);
+$font-size-paragraph: 15px;
+$bg-body: #141519;
+$blue-1: #1f2630;
+$blue-2: #1d242e;
+$blue-3: #181f29;
+$light-blue: #252f38;
+$light-blue-hover: #7c8896;
+$text-color: #808b96;
+$title-color: #feffff;
+
+
+/*
+MIXINS
+*/
+
+@mixin card() {
+    background-image: linear-gradient(to bottom, $blue-1, $blue-2, $blue-3 60%);
+    min-height: 300px;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    padding: 1.4rem;
+    gap: 1.5rem;
+}
+
+@mixin button() {
+    border: transparent;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: .6rem;
+    border-radius: 30px;
+    background-color: $orange;
+    color: #fff;
+    min-height: 41px;
+}

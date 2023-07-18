@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+}
+
+:root {
+    --body-bg: #d5e1ef;
+    --card-bg: #fff;
+    --title-color: #19233c;
+    --para-color: #7a7e92;
+}
+
+@font-face {
+    font-family: "Outfit-400";
+    src: url('../fonts/Outfit/static/Outfit-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Outfit-700";
+    src: url('../fonts/Outfit/static/Outfit-Bold.ttf');
+}
+
+
+body {
+    background-color: var(--body-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    min-height: 300px; 
+    width: 280px;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card .card__img {
+    background-image: url('../img/code.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 270px;
+    border-radius: 10px;
+
+}
+
+.card .card__title {
+    font-size: 1.2rem;
+    font-family: "Outfit-700";
+    align-self: center;
+    color: var(--title-color);
+    text-align: center; 
+}
+
+.card .card__para {
+    font-size: 14px;
+    color: var(--para-color);
+    font-family: "Outfit-400";    
+    text-align: center; 
+}
+
